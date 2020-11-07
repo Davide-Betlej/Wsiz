@@ -15,22 +15,18 @@ from random import randint, seed
 
 seed(111)
 
-def ile_zer(tab):
-    jedynka_index = znajdz_jedynke(tab)
-    jedynka_ost_index = rindex(tab, 1)
+def ile_zer(aa):
+    started = False
     sum = 0
-
-    for i in range(jedynka_index,jedynka_ost_index):
-        if tab[i] == 0:
-            sum += 1
+    bag0 = 0
+    for a in aa:
+        if a == 1:
+            started = True
+            sum += bag0
+            bag0 = 0
+        if started and a == 0:
+            bag0 += 1
     return sum
-
-def znajdz_jedynke(tab):
-    return tab.index(1)
-
-# helper function z stackoverflow -- zwraca last index of occurance
-def rindex(mylist, myvalue):
-    return len(mylist) - mylist[::-1].index(myvalue) - 1
 
 class TestSum(unittest.TestCase):
 
