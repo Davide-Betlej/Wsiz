@@ -10,9 +10,15 @@ tak by stała się perfekcyjna. Np. dla [1,1,1,2] wystarczy wziąć [1,1,1,3].
 from random import randint, seed
 
 
-
 def perfect(tab: List):
-    return []
+    tablen = len(tab)
+    suma = sum(tab)
+    print(suma, tablen)
+    if suma % tablen != 0:
+        while suma % tablen != 0:
+            suma += 1
+            tab[-1] += 1
+    return tab
 
 class TestSum(unittest.TestCase):
 
