@@ -13,7 +13,14 @@ tj. całe jego zamówienie zostanie zrealizowane.
 
 
 def kebab(x, y, xx, yy, zam: List):
-    return 0
+    uzyteX = 0
+    uzyteY = 0
+    for i in range(len(zam)):
+        uzyteX += (x * zam[i])
+        uzyteY += (y * zam[i])
+        if uzyteX > xx or uzyteY > yy:
+            return i - 1
+    return len(zam) - 1
 
 
 class TestSum(unittest.TestCase):
