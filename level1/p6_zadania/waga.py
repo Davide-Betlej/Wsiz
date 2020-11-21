@@ -1,6 +1,5 @@
 import unittest
 from typing import List
-from random import randint, seed
 
 """
 Podana jest lista zabytkowych monet, każda oznaczona jedynie ich wagą. 
@@ -13,7 +12,14 @@ Monety trzeba podzielić na dwie grupy o równej (łącznej) wadze. Ocenić, czy
 
 
 def waga(coins: List[int]):
-    return True
+    left = coins[:-1]           # Bierze wszystkie elementy listy z wyłączeniem ostatniego elementu
+    right = [coins[-1]]         # Bierze ostatni prawy element listy
+    print(left)
+    print(right)
+    if sum(left) == sum(right):
+        return True
+    else:
+        return False
 
 
 class TestSum(unittest.TestCase):
@@ -28,7 +34,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(waga([1, 1, 1]), False, '')
 
     def test_4(self):
-        self.assertEqual(waga([1, 1, 1]), False, '')
+        self.assertEqual(waga([1, 1, 1, ]), False, '')
 
     def test_5(self):
         self.assertEqual(waga([1, 1, 1, 1, 1, 1, 6]), True, '')

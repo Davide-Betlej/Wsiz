@@ -13,8 +13,18 @@ Sprawdzić czy `vir` zawiera mutacje (tak/nie).
 
 
 def wirus(vir: str, genes: List[str]):
+    var=''
+    spr=''
+    for i in range(len(vir)):
+        var+=vir[i]
+        for j in genes:
+            if j==var:
+                spr+=var
+                var=''
+                break
+    if len(vir)==len(spr):
+        return False
     return True
-
 
 class TestSum(unittest.TestCase):
 
