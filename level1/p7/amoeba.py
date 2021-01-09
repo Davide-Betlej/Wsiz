@@ -13,8 +13,8 @@ Mając daną początkową wielkość amoeby i wielkości bakterii w jej okolicy,
 def amoeba(x: int, bacteria: List[int]):
     for i in range(len(bacteria)):
         if x == bacteria[i]:
-            x = x*2
-            return amoeba (x, bacteria)
+            x = x * 2
+            return amoeba(x, bacteria)  # rekurencja
     return x
 
 
